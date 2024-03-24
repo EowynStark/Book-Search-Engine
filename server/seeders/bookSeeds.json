@@ -1,0 +1,18 @@
+[
+    {
+        "authors": ["Suzanne Collins"],
+         "description": "The Hunger Games follows Katniss Everdeen as she is forced to fight in a yearly gladiatorial contest. Katniss's struggle and ultimate survival, along with Peeta Mellark's, sparks a revolution to overthrow the tyrannical Capitol.",
+         "bookId": "1",
+         "image": "https://images-na.ssl-images-amazon.com/images/I/51WIKlio9qL._AC_SX368_.jpg",
+         "link": "https://www.amazon.com/Hunger-Games-Book-1/dp/0439023521/ref=sr_1_1?dchild=1&keywords=the+hunger+games&qid=1615210134&sr=8-1",
+         "title": "The Hunger Games"
+     },
+     {
+        "authors": ["J.K. Rowling"],
+        "description": "Harry Potter and the Sorcerer's Stone follows Harry Potter as he learns about his magical heritage and attends Hogwarts School of Witchcraft and Wizardry. Harry and his friends, Ron and Hermione, uncover a plot to steal the Sorcerer's Stone and prevent the return of the dark wizard Voldemort.",
+        "bookId": "2",
+        "image": "https://images-na.ssl-images-amazon.com/images/I/51if5j5v8AL._AC_SX368_.jpg",
+        "link": "https://www.amazon.com/Harry-Potter-Sorcerers-Stone-Rowling/dp/059035342X/ref=sr_1_1?dchild=1&keywords=harry+potter+and+the+sorcerer%27s+stone&qid=1615210194&sr=8-1",
+        "title": "Harry Potter and the Sorcerer's Stone"
+    }
+]
