@@ -1,14 +1,13 @@
-const models = require('../models');
-const db = require('../config/connection');
+const { User } = require('../models');
 
-module.exports = async (modelName, collectionName) => {
-    try {
-        let modelExists = await models[modelName].db.db.listCollections({name: collectionName}).toArray();
-        if (modelExists.length) {
-            await db.dropCollection(collectionName);
-        }
-    } catch (err) {
-        console.error(`Error dropping collection: ${collectionName}`);
-        throw err;
-    }
-}
+const cleanDB = async () => {
+  try {
+    await User.updateMany({}, { $set: { savedBooks: [] } });
+    console.log('All books removed from users.');
+  } catch (err) {
+    console.error('Error removing books from users:', err);
+    process.exit(1);
+  }
+};
+
+module.exports = cleanDB;

@@ -1,19 +1,22 @@
 const db = require('../config/connection');
-const { User, Book } = require('../models');
+const { User } = require('../models');
 const userSeeds = require('./userSeeds.json');
-const bookSeeds = require('./bookSeeds.json');
 const cleanDB = require('./cleanDB');
 
-db.once('open', async () => {
+const seedDB = async () => {
     try {
-        await cleanDB('User', 'users');
-        await cleanDB('Book', 'books');
-        await User.create(userSeeds);
-        await Book.create(bookSeeds);
+      await User.deleteMany({});
+  
+      for (const user of userData) {
+        const newUser = await User.create(user);
+        console.log(`User ${newUser.username} created with books.`);
+      }
+  
+      console.log('Database seeded successfully.');
     } catch (err) {
-        console.error(err);
-        process.exit(1);
+      console.error('Error seeding database:', err);
+      process.exit(1);
     }
-    console.log('Seeding complete!');
-    process.exit(0);
-});
+  };
+  
+  module.exports = seedDB;
