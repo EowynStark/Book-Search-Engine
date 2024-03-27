@@ -20,7 +20,7 @@ const resolvers = {
     }, 
     Mutation: {
         // create a user, sign a token, and send it back (to client/src/components/SignUpForm.js)
-        createUser: async(_, {username, email, password}, context) => {
+        addUser: async(_, {username, email, password}, context) => {
             try {
                 const user = await User.create({username, email, password});
                 const token = signToken(user);
@@ -63,7 +63,7 @@ const resolvers = {
         }
     }, 
     // remove a book from `savedBooks`
-    deleteBook: async(_, {bookId}, context) => {
+    removeBook: async(_, {bookId}, context) => {
         try {
             const {user} = context;
             const updatedUser = await User.findOneAndUpdate(
