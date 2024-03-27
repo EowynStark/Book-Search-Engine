@@ -1,4 +1,4 @@
-const {gql} = require('@apollo/server');
+
 
 const typeDefs =`
 type User {
@@ -22,6 +22,7 @@ type Auth {
 }
 type Query {
     me: User
+    getSingleUser(id: ID!): User
 }
 type Mutation {
     login(email: String!, password: String!): Auth

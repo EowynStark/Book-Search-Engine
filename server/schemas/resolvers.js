@@ -3,11 +3,9 @@ const {signToken, AuthenticationError} = require('../utils/auth');
 
 const resolvers = {
     Query: {
-        getSingleUser: async(_, {user, params}, context) => {
+        getSingleUser: async(_, { id }, context) => {
             try {
-                const foundUser = await User.findOne({
-                    $or: [{_id: user ? user._id : params.id}, {username: params.username}],
-                });
+                const foundUser = await User.findById(id);
                 if (!foundUser) {
                     throw new AuthenticationError('User not found!');
                 }
