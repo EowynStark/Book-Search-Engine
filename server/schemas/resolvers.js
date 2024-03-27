@@ -63,11 +63,12 @@ const resolvers = {
         }
     }, 
     // remove a book from `savedBooks`
-    deleteBook: async(_, {user, params}, context) => {
+    deleteBook: async(_, {bookId}, context) => {
         try {
+            const {user} = context;
             const updatedUser = await User.findOneAndUpdate(
                 {_id: user._id},
-                {$pull: {savedBooks: {bookId: params.bookId}}},
+                {$pull: {savedBooks: {bookId}}},
                 {new: true}
             );
             if (!updatedUser) {
