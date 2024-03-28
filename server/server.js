@@ -7,6 +7,7 @@ const { authMiddleware } = require('./utils/auth');
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 const routes = require('./routes');
+const seedDB = require('./seeders/seed');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -31,6 +32,14 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 app.use(routes);
+
+try {
+  await seedDB();
+  console.log('Database seeded.');
+} catch (err) {
+  console.error('Error seeding database:', err);
+  process.exit(1);
+}
 
 db.once('open', () => {
   app.listen(PORT, () => console.log(`🌍 Now listening on localhost:${PORT}`));
