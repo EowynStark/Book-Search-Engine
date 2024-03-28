@@ -10,13 +10,8 @@ const seedDB = async () => {
       console.log('Database cleaned.');
       // Seed the database
       const userData = await User.insertMany(userSeeds);
-      for (const user of userData) {
-        const newUser = await User.create(user);
-        console.log(`User ${newUser.username} created with books.`);
-      }
-  
-      console.log('Database seeded successfully.');
-    } catch (err) {
+      console.log('Database seeded.');
+      } catch (err) {
       console.error('Error seeding database:', err);
       process.exit(1);
     }
