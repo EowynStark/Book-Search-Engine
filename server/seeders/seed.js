@@ -5,8 +5,11 @@ const cleanDB = require('./cleanDB');
 
 const seedDB = async () => {
     try {
+      // Clean the database
       await User.deleteMany({});
-  
+      console.log('Database cleaned.');
+      // Seed the database
+      const userData = await User.insertMany(userSeeds);
       for (const user of userData) {
         const newUser = await User.create(user);
         console.log(`User ${newUser.username} created with books.`);
