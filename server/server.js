@@ -34,7 +34,7 @@ if (process.env.NODE_ENV === 'production') {
 app.use(routes);
 
 // try {
-//   await seedDB();
+  // await seedDB();
 //   console.log('Database seeded.');
 // } catch (err) {
 //   console.error('Error seeding database:', err);
